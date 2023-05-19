@@ -1,0 +1,57 @@
+2019-08-05 07:25:47 Error: Class 'd\fy\sroad1' not found in D:\www\mudfy3\libs\object.php:125
+Stack trace:
+#0 D:\www\mudfy3\adm\daemons\taskd.php(41): libs\object->get_room('d\\fy\\sroad1')
+#1 D:\www\mudfy3\adm\daemons\taskd.php(26): adm\daemons\taskd->spread_quest(Array, 0)
+#2 D:\www\mudfy3\adm\daemons\crond.php(28): adm\daemons\taskd->init_dynamic_quest()
+#3 D:\www\mudfy3\libs\game.php(63): adm\daemons\crond->run()
+#4 [internal function]: libs\game->libs\{closure}()
+#5 D:\www\mudfy3\workerman\Events\Select.php(235): call_user_func_array(Object(Closure), Array)
+#6 D:\www\mudfy3\workerman\Events\Select.php(284): Workerman\Events\Select->tick()
+#7 D:\www\mudfy3\workerman\Worker.php(858): Workerman\Events\Select->loop()
+#8 D:\www\mudfy3\workerman\Worker.php(473): Workerman\Worker->run()
+#9 D:\www\mudfy3\workerman\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 D:\www\mudfy3\mudos.php(45): Workerman\Worker::runAll()
+#11 {main}
+2019-08-14 06:40:11 Error: Call to a member function do_cmd() on null in D:\www\mudfy3\std\char.php:114
+Stack trace:
+#0 D:\www\mudfy3\libs\game.php(250): std\char->do_cmd(Object(Workerman\Connection\TcpConnection), 'locate meipai')
+#1 D:\www\mudfy3\mudos.php(37): libs\game->onMessage(Object(Workerman\Connection\TcpConnection), 'locate meipai')
+#2 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'locate meipai')
+#3 D:\www\mudfy3\workerman\Connection\TcpConnection.php(637): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'locate meipai')
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #138)
+#5 D:\www\mudfy3\workerman\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 D:\www\mudfy3\workerman\Worker.php(858): Workerman\Events\Select->loop()
+#7 D:\www\mudfy3\workerman\Worker.php(473): Workerman\Worker->run()
+#8 D:\www\mudfy3\workerman\Worker.php(382): Workerman\Worker::runAllWorkers()
+#9 D:\www\mudfy3\mudos.php(45): Workerman\Worker::runAll()
+#10 {main}
+2019-08-20 06:27:11 Error: Call to a member function get_env() on string in D:\www\mudfy3\adm\daemons\taskd.php:206
+Stack trace:
+#0 D:\www\mudfy3\cmds\std\locate.php(33): adm\daemons\taskd->locate_obj(Object(obj\user), 'priest')
+#1 D:\www\mudfy3\std\char.php(114): cmds\std\locate->do_cmd(Object(Workerman\Connection\TcpConnection), 'priest')
+#2 D:\www\mudfy3\libs\game.php(250): std\char->do_cmd(Object(Workerman\Connection\TcpConnection), 'locate priest')
+#3 D:\www\mudfy3\mudos.php(37): libs\game->onMessage(Object(Workerman\Connection\TcpConnection), 'locate priest')
+#4 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'locate priest')
+#5 D:\www\mudfy3\workerman\Connection\TcpConnection.php(637): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'locate priest')
+#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #132)
+#7 D:\www\mudfy3\workerman\Events\Select.php(296): call_user_func_array(Array, Array)
+#8 D:\www\mudfy3\workerman\Worker.php(858): Workerman\Events\Select->loop()
+#9 D:\www\mudfy3\workerman\Worker.php(473): Workerman\Worker->run()
+#10 D:\www\mudfy3\workerman\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 D:\www\mudfy3\mudos.php(45): Workerman\Worker::runAll()
+#12 {main}
+2019-08-20 06:48:20 Error: Call to undefined method Workerman\Connection\TcpConnection::get_env() in D:\www\mudfy3\adm\daemons\taskd.php:211
+Stack trace:
+#0 D:\www\mudfy3\cmds\std\locate.php(33): adm\daemons\taskd->locate_obj(Object(obj\user), 'test')
+#1 D:\www\mudfy3\std\char.php(114): cmds\std\locate->do_cmd(Object(Workerman\Connection\TcpConnection), 'test')
+#2 D:\www\mudfy3\libs\game.php(250): std\char->do_cmd(Object(Workerman\Connection\TcpConnection), 'locate test')
+#3 D:\www\mudfy3\mudos.php(37): libs\game->onMessage(Object(Workerman\Connection\TcpConnection), 'locate test')
+#4 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'locate test')
+#5 D:\www\mudfy3\workerman\Connection\TcpConnection.php(637): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'locate test')
+#6 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #164)
+#7 D:\www\mudfy3\workerman\Events\Select.php(296): call_user_func_array(Array, Array)
+#8 D:\www\mudfy3\workerman\Worker.php(858): Workerman\Events\Select->loop()
+#9 D:\www\mudfy3\workerman\Worker.php(473): Workerman\Worker->run()
+#10 D:\www\mudfy3\workerman\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 D:\www\mudfy3\mudos.php(45): Workerman\Worker::runAll()
+#12 {main}

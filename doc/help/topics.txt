@@ -1,0 +1,22 @@
+风云游戏的说明文件全部由〖风云工作室〗创造编写，如果你看到错别字或发现
+不全，不符之处，请通知管理人员。风云文件呈树状分布，阅读每篇文件都请用
+help <文件名>。以下是说明文件的几个主干：
+<br>copyright.txt           版权篇
+<br>laws.txt                天条篇
+<br>background.txt          背景篇
+<br>newbie.txt              新手篇
+<br>social.txt              社交篇
+<br>menpai.txt              门派篇
+<br>figure.txt              人物篇
+<br>items.txt               物品篇
+<br>pet.txt                 宠物篇
+<br>buildroom.txt           房屋篇
+<br>tasking.txt             使命篇
+<br>combat.txt              战斗篇
+<br>settings.txt            参数篇
+<br>banking.txt             商贸篇
+<br>marry.txt               婚嫁篇
+<br>commands.txt            指令篇
+<br>map.txt                 地图篇
+<br>goal.txt                目的篇
+<br>others.txt              补充篇

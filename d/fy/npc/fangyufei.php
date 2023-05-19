@@ -1,0 +1,44 @@
+<?php
+/**
+*   方玉飞
+*
+*/
+namespace d\fy\npc;
+
+use std\msg;
+use std\char;
+
+class fangyufei extends char
+{
+    function __construct()
+    {
+        parent::__construct();
+        $this->init();
+    }
+
+    public function init()
+    {
+        $this->set('name', '方玉飞');
+        $this->set('id', 'fang');
+        $this->set('age', 29);
+        $this->set('gender', '男性');
+        $this->set('long', '银鹞子方玉飞是银钩赌坊大老板的小舅子，吃喝嫖赌样样精通。');
+        $this->set('title', 'HIW银鹞子NOR');
+        $this->set("combat_exp", 100000);
+        $this->set("str", 27);
+        $this->set("cor", 26);
+        $this->set("cps", 25);
+        $this->set("per", 30);
+	    $this->set("attitude", "heroism");
+	    $this->set_skill("unarmed", 70 + rand(0, 100));
+	    $this->set_skill("parry", 70 + rand(0, 100));
+        $this->set_skill("dodge", 70 + rand(0, 100));
+        $this->set_skill("move", 100 + rand(0, 100));
+        $this->set_temp("apply/attack", 70);
+        $this->set_temp("apply/defense", 70);
+        $this->set_temp("apply/damage", 30);
+        $this->set_temp("apply/armor", 70);
+        $this->set_temp("apply/move", 100);
+        $this->equip_object('d/fy/npc/obj/yincloth');
+    }
+}

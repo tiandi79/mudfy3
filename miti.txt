@@ -1,0 +1,18 @@
+﻿marks:
+[忠义]  [忠][不忠]  岳飞
+[冷若霜]   1
+[金狮]  timestamp
+
+temp_marks:
+marks/ye  叶孤城
+
+mystory:
+罗刹牌
+
+
+不同之处：
+1. 扳指
+2. 自造
+3. learn xxx from xx 1
+4. give sb sth 废除，只能用give sth to sb
+5. 部分空格的人物用-连接，比如master yin变成master-yin

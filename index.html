@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>一世风云</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes" /> 
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id='status'></div>
+<div id='content'></div>
+<div id='btnarea'>
+<input type='text' id='command' autofocus="autofocus" onkeypress="enterpress()" />
+<input type="button" id='btn' onclick="send()"  value="发送" />
+<div id='colortype' onclick="changecolor()" ></div>
+</div>
+</body>
+<script>
+if (getCookie('colortype') == null)
+{
+	document.getElementById('colortype').innerHTML = "配色方案【默认】";
+}
+else if (getCookie('colortype') == 'default') {
+	document.getElementById('colortype').innerHTML = "配色方案【默认】";
+}
+else {
+	document.getElementById('colortype').innerHTML = "配色方案【怀旧】";
+	document.body.style.background = '#000000';
+	document.body.style.color = '#4C9335';
+}
+
+// 服务器通信
+ws = new WebSocket("ws://127.0.0.1:3333");
+ws.onerror=function(event){
+    document.getElementById('status').innerHTML="连接服务器失败!<a href=>[重连]</a>";
+};
+ws.onopen = function() {
+    document.getElementById('status').innerHTML="连接服务器成功!";
+};
+ws.onmessage = function(e) {
+	document.getElementById('content').innerHTML += format_color(e.data);
+	var len = document.getElementById('content').innerHTML.length;
+	if (len > 5000)
+	{
+		document.getElementById('content').innerHTML = document.getElementById('content').innerHTML.substr(len-5000);
+	}
+	document.getElementById('content').scrollTop = document.getElementById('content').scrollHeight + 50;
+};
+ws.onclose = function(event) {
+    document.getElementById('status').innerHTML="连接服务器失败!<a href=>[重连]</a>";
+};
+
+function format_color(data)
+{
+	if (document.getElementById('colortype').innerHTML == "配色方案【怀旧】")
+	{
+		data = data.replace(/HIW/g, "<span style='color:#ffffff'>");
+		data = data.replace(/WHT/g, "<span style='color:#F0F0F0'>");
+		data = data.replace(/RED/g, "<span style='color:#B62D2D'>");
+		data = data.replace(/HIR/g, "<span style='color:#EF3232'>");
+		data = data.replace(/GRN/g, "<span style='color:#229954'>");
+		data = data.replace(/HIG/g, "<span style='color:#44DA2D'>");
+		data = data.replace(/YEL/g, "<span style='color:#C4C62A'>");
+		data = data.replace(/HIY/g, "<span style='color:#E9EB31'>");
+		data = data.replace(/BLU/g, "<span style='color:#2252B2'>");
+		data = data.replace(/HIB/g, "<span style='color:#2E6BE4'>");
+		data = data.replace(/MAG/g, "<span style='color:#971685'>");
+		data = data.replace(/HIM/g, "<span style='color:#E620CA'>");
+		data = data.replace(/CYN/g, "<span style='color:#19A693'>");
+		data = data.replace(/HIC/g, "<span style='color:#2EF5D4'>");
+		data = data.replace(/NOR/g, "</span>");
+	}
+	else {
+		data = data.replace(/HIW/g, "<span style='color:#000000'>");
+		data = data.replace(/WHT/g, "<span style='color:#000000'>");
+		data = data.replace(/RED/g, "<span style='color:#000000'>");
+		data = data.replace(/HIR/g, "<span style='color:#000000'>");
+		data = data.replace(/GRN/g, "<span style='color:#000000'>");
+		data = data.replace(/HIG/g, "<span style='color:#000000'>");
+		data = data.replace(/YEL/g, "<span style='color:#000000'>");
+		data = data.replace(/HIY/g, "<span style='color:#000000'>");
+		data = data.replace(/BLU/g, "<span style='color:#000000'>");
+		data = data.replace(/HIB/g, "<span style='color:#000000'>");
+		data = data.replace(/MAG/g, "<span style='color:#000000'>");
+		data = data.replace(/HIM/g, "<span style='color:#000000'>");
+		data = data.replace(/CYN/g, "<span style='color:#000000'>");
+		data = data.replace(/HIC/g, "<span style='color:#000000'>");
+		data = data.replace(/NOR/g, "</span>");
+	}
+	return data;
+}
+
+function send() {
+	var command = document.getElementById('command').value;
+	ws.send(command);
+	if (document.getElementById('colortype').innerHTML == "配色方案【默认】")
+	{
+		document.getElementById('content').innerHTML += "<span name='inputmsg' style='color:#000000'>" + command + '</span><br>';
+	}
+	else {
+		document.getElementById('content').innerHTML += "<span name='inputmsg' style='color:#EBEE3D'>" + command + '</span><br>';
+	}
+	
+	document.getElementById('command').value = '';
+	document.getElementById('content').scrollTop = document.getElementById('content').scrollHeight + 50;
+}
+
+// 回车处理
+function enterpress(e){   
+	var e = e || window.event;
+    if(e.keyCode == 13){ 
+         send();
+    }   
+}
+
+function changecolor(){
+	if (document.getElementById('colortype').innerHTML == "配色方案【默认】")
+	{
+		document.getElementById('colortype').innerHTML = "配色方案【怀旧】";
+		setCookie('colortype', 'terminal');
+		document.body.style.background = '#000000';
+		document.body.style.color = '#4C9335';
+		if (document.getElementsByName('inputmsg'))
+		{
+			var msgs = document.getElementsByName('inputmsg');
+			for(var i=0;i<msgs.length;i++) {
+				msgs[i].style.color = '#EBEE3D';
+			}
+		}
+	}
+	else {
+		document.getElementById('colortype').innerHTML = "配色方案【默认】";
+		setCookie('colortype', 'default');
+		document.body.style.background = '#ffffff';
+		document.body.style.color = '#000000';
+		if (document.getElementsByName('inputmsg'))
+		{
+			var msgs = document.getElementsByName('inputmsg');
+			for(var i=0;i<msgs.length;i++) {
+				msgs[i].style.color = '#000000';
+			}
+		}
+	}
+}
+
+//获取屏幕高度，定义输出div高度
+var height = window.innerHeight;
+document.getElementById('content').style.height = (height - 100) +'px';
+
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+
+function setCookie(name,value) 
+{ 
+    var Days = 30; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+} 
+
+</script>
+</html>

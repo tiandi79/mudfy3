@@ -1,0 +1,70 @@
+#btnarea {
+	position:fixed;
+	bottom:0px;
+	margin: 10px;
+	width:100%;
+	height: 60px;
+}
+
+#command {
+	width:65%;
+	font-size: 20px;
+	padding:10px;
+	border-style: groove;
+	float:left;
+}
+
+#status {
+	font-size: 16px;
+	color: gray;
+	position:fixed;
+	top: 0px;
+	width: 100%;
+	filter:alpha(Opacity=80);
+	-moz-opacity:0.8;
+	opacity: 0.8;
+	background: #fff;
+	padding-bottom:3px;
+}
+#colortype {
+	margin-left:2px;
+	margin-bottom:2px;
+	font-size: 10px;
+	color: gray;
+}
+
+#btn {
+	font-size: 20px;
+	padding:10px;
+	margin-left:3%;
+	width: 17%;
+}
+
+#content {
+	font-size: 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+	overflow-y: auto;
+}
+
+#gametitle {
+	font-size: 55pt;
+    font-family: cursive;
+	padding-top: 50px;
+	margin-bottom: 20px;
+}
+
+.gamesign {
+	text-align:right;
+	font-family: cursive;
+	font-size: 20px;
+}
+
+#logininfo {
+	margin-top: 20px;
+}
+body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
